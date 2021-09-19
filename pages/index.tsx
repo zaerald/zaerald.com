@@ -63,7 +63,7 @@ const Home: NextPage = () => {
               className="rounded-full"/>
           </div>
           <p className="text-3xl sm:text-3xl md:mb-2">
-            Yo! I'm <Link href="https://en.wikipedia.org/wiki/Daemon_(computing)">
+            Yo! I&apos;m <Link href="https://en.wikipedia.org/wiki/Daemon_(computing)">
             <a className="inline-block text-white border-b-8 border-accent leading-5 hover:border-opacity-5"
                target="_blank"
                rel="noopener noreferrer">
@@ -71,7 +71,7 @@ const Home: NextPage = () => {
             </a>
           </Link>
           </p>
-          <p className="text-secondary-200">I'm a daemon process</p>
+          <p className="text-secondary-200">I&apos;m a daemon process</p>
 
           <div className="flex justify-center mt-3 md:mt-4">
             {socials.map(({component, link, name}) =>
