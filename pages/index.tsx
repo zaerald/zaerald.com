@@ -9,7 +9,7 @@ import Twitter from '@/public/images/twitter.svg'
 import Linkedin from '@/public/images/linkedin.svg'
 
 const Home: NextPage = () => {
-  const socialLogoClasses = 'w-6 h-6 lg:w-8 md:h-8 fill-current text-white'
+  const socialLogoClasses = 'w-6 h-6 lg:w-8 md:h-8 fill-current text-white opacity-70 hover:opacity-100'
   const socials = [
     {
       name: 'GitHub',
@@ -38,11 +38,11 @@ const Home: NextPage = () => {
       <header className="fixed w-full z-50 px-4 py-3 bg-primary-400 md:px-8 md:py-4">
         <div className="flex items-center">
           <Link href="https://zaerald.com">
-            <a className="text-3xl text-accent">zaerald</a>
+            <a className="text-3xl text-accent hover:text-accent-hover">zaerald</a>
           </Link>
           <Link href="https://blog.zaerald.com">
             <a
-              className="ml-auto text-lg text-secondary-200 md:text-2xl lg:text-3xl hover:text-white hover:border-b-8 hover:border-accent hover:leading-4"
+              className="ml-auto text-lg text-secondary-200 md:text-2xl lg:text-3xl hover:text-white hover:border-b-8 hover:border-accent-hover hover:leading-4"
               target="_blank"
               rel="noopener noreferrer">
               blog
@@ -64,7 +64,7 @@ const Home: NextPage = () => {
           </div>
           <p className="text-3xl sm:text-3xl md:mb-2">
             Yo! I&apos;m <Link href="https://en.wikipedia.org/wiki/Daemon_(computing)">
-            <a className="inline-block text-white border-b-8 border-accent leading-5 hover:border-opacity-5"
+            <a className="inline-block text-white leading-5 border-b-8 border-accent hover:border-accent-hover"
                target="_blank"
                rel="noopener noreferrer">
               zaerald
