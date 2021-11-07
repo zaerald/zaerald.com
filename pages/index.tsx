@@ -37,7 +37,7 @@ const Home: NextPage = () => {
       </Head>
       <header className="fixed w-full z-50 px-4 py-3 bg-primary-400 md:px-8 md:py-4">
         <div className="flex items-center">
-          <Link href="https://zaerald.com">
+          <Link href="/">
             <a className="text-3xl text-accent hover:text-accent-hover">zaerald</a>
           </Link>
           <Link href="https://blog.zaerald.com">
