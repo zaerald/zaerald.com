@@ -1,7 +1,8 @@
 import type {NextPage} from 'next'
-import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import Header from '@/components/Header'
 
 import profilePic from '@/public/images/profile.jpg'
 import Github from '@/public/images/github.svg'
@@ -29,28 +30,8 @@ const Home: NextPage = () => {
   ]
 
   return (
-    <div>
-      <Head>
-        <title>Zaerald</title>
-        <meta name="description" content="Zaerald"/>
-        <link rel="icon" href="/favicon.ico"/>
-      </Head>
-      <header className="fixed w-full z-50 px-4 py-3 bg-primary-400 md:px-8 md:py-4">
-        <div className="flex items-center">
-          <Link href="/">
-            <a className="text-3xl text-accent hover:text-accent-hover">zaerald</a>
-          </Link>
-          <Link href="https://blog.zaerald.com">
-            <a
-              className="ml-auto text-lg text-secondary-200 md:text-2xl lg:text-3xl hover:text-white hover:border-b-8 hover:border-accent-hover hover:leading-4"
-              target="_blank"
-              rel="noopener noreferrer">
-              blog
-            </a>
-          </Link>
-        </div>
-      </header>
-
+    <>
+      <Header/>
       <div className="flex justify-center items-center w-full h-screen">
         <main className="w-4/5 mx-auto text-center md:w-3/5 lg:w-2/5">
           <div className="w-3/5 mx-auto mb-2 md:w-2/6 lg:w-2/6">
@@ -86,7 +67,7 @@ const Home: NextPage = () => {
           </div>
         </main>
       </div>
-    </div>
+    </>
   )
 }
 
