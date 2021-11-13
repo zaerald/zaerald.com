@@ -7,9 +7,9 @@ export default function Header() {
   const router = useRouter();
 
   const baseLinkClasses = [
-  'mt-3', 'text-xl', 'md:text-2xl', 'lg:text-3xl',
-  'border-b-8', 'border-opacity-0',
-  'hover:text-white', 'hover:border-accent-hover',
+    'mt-3', 'text-xl', 'md:text-2xl', 'lg:text-3xl',
+    'border-b-8', 'border-opacity-0',
+    'hover:text-white', 'hover:border-accent-hover',
   ]
 
   const activeLinkClasses = ['text-white', 'border-accent-hover'].join(' ')
@@ -19,8 +19,8 @@ export default function Header() {
     <>
       <Head>
         <title>Zaerald</title>
-        <meta name="description" content="Zaerald"/>
-        <link rel="icon" href="/favicon.ico"/>
+        <meta name="description" content="Zaerald" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="fixed w-full z-50 px-4 py-3 bg-primary-400 md:px-8 md:py-4">
         <div className="flex items-center">
