@@ -1,9 +1,11 @@
 import type {NextPage} from 'next'
 
 import Header from '@/components/Header'
+import SimpleLink from '@/components/SimpleLink'
 import {getMyImpossibleList} from '../lib/notion'
 import {MilList, MilModel} from '@/lib/types'
 import {QueryDatabaseResponse} from '@notionhq/client/build/src/api-endpoints'
+import React from 'react'
 
 interface ListProps {
   myImpossibleList: MilList,
@@ -51,7 +53,6 @@ export async function getServerSideProps() {
 
 const List: NextPage<ListProps> = ({myImpossibleList}: ListProps) => {
 
-  console.log()
 
   return (
     <>
@@ -79,7 +80,12 @@ const List: NextPage<ListProps> = ({myImpossibleList}: ListProps) => {
           )}
         </ul>
 
-        <p className="mt-32 text-center">Inspired by <a href="https://twitter.com/TomFrankly" target="_blank" rel="noopener noreferrer">@TomFrankly</a>&apos;s <a href="https://collegeinfogeek.com/about/meet-the-author/my-impossible-list" target="_blank" rel="noopener noreferrer">list</a> and <a href="https://twitter.com/joelrunyon" target="_blank" rel="noopener noreferrer">@joelrunyon</a>&apos;s <a href="https://impossiblehq.com/impossible-list/" target="_blank" rel="noopener noreferrer">list</a>.</p>
+        <p className="mt-32 text-center">
+          Inspired by <SimpleLink link="https://twitter.com/TomFrankly" text="@TomFrankly" />&apos;s
+          <SimpleLink link="https://collegeinfogeek.com/about/meet-the-author/my-impossible-list" text=" list" /> and
+          <SimpleLink link="https://twitter.com/joelrunyon" text=" @joelrunyon" />&apos;s
+          <SimpleLink link="https://impossiblehq.com/impossible-list" text=" list" />.
+        </p>
 
       </div>
     </>
