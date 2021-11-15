@@ -1,11 +1,12 @@
 import type {NextPage} from 'next'
 
-import Header from '@/components/Header'
-import SimpleLink from '@/components/SimpleLink'
 import {getMyImpossibleList} from '../lib/notion'
 import {MilList, MilModel} from '@/lib/types'
 import {QueryDatabaseResponse} from '@notionhq/client/build/src/api-endpoints'
-import React from 'react'
+
+import Header from '@/components/Header'
+import SimpleLink from '@/components/SimpleLink'
+import MilItem from '@/components/MilItem'
 
 interface ListProps {
   myImpossibleList: MilList,
@@ -20,7 +21,9 @@ export async function getServerSideProps() {
     myImpossibleList = fetchedList.results
       .map(it => it.properties)
       .reduce((acc: MilList, val: any) => {
-        const key = val.Category.select.id
+        const key = val?.Category?.select?.id
+        if (!key) return {...acc};
+
         let values = [val]
 
         if (acc[key]) {
@@ -53,7 +56,6 @@ export async function getServerSideProps() {
 
 const List: NextPage<ListProps> = ({myImpossibleList}: ListProps) => {
 
-
   return (
     <>
       <Header />
@@ -70,14 +72,16 @@ const List: NextPage<ListProps> = ({myImpossibleList}: ListProps) => {
             <li key={key}>
               <h2 className="inline-block ml-3 mb-4 mt-14 text-xl md:text-3xl lg:text-4xl border-b-8 border-accent lowercase">{value.category.name}</h2>
               <ul className="list-disc">
-                {value.values.map((item, index) =>
-                  <li key={`${item.length} ${index}`} className="text-xl">
-                  {item.Name.title && item.Name.title[0].plain_text}
-                  </li>
+                {value.values.map(
+                  (item, index) => <MilItem key={`${item.length} ${index}`} item={item}/>
                 )}
               </ul>
             </li>
           )}
+          {
+            Object.values(myImpossibleList).length === 0
+            && <li className="text-center mt-8">Unable to fetch list 😢.</li>
+          }
         </ul>
 
         <p className="mt-32 text-center">
