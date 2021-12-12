@@ -28,6 +28,9 @@
       "@/public/*": [
         "public/*"
       ],
+      "@/styles/*": [
+        "styles/*"
+      ],
       "@/utils/*": [
         "utils/*"
       ],
