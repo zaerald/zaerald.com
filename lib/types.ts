@@ -4,9 +4,8 @@ export interface MilList {
 
 export interface MilModel {
   category: {
-    id: string,
-    name: string,
-  },
-  values: any[],
+    id: string
+    name: string
+  }
+  values: any[]
 }
-

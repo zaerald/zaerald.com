@@ -38,8 +38,8 @@ module.exports = {
         DEFAULT: 'var(--color-accent)',
         hover: 'var(--color-accent-hover)',
         disabled: 'var(--color-accent-disabled)',
-      }
-    }
+      },
+    },
   },
   variants: {
     extend: {
