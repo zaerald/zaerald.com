@@ -16,7 +16,7 @@
     "react-topbar-progress-indicator": "^4.1.1"
   },
   "devDependencies": {
-    "@svgr/webpack": "^5.5.0",
+    "@svgr/webpack": "^6.2.1",
     "@types/react": "18.0.9",
     "autoprefixer": "^10.4.7",
     "eslint": "7.32.0",
