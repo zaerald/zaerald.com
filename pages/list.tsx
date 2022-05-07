@@ -19,7 +19,7 @@ export async function getServerSideProps() {
     const fetchedList: QueryDatabaseResponse = await getMyImpossibleList()
 
     myImpossibleList = fetchedList.results
-      .map((it) => it.properties)
+      .map((it) => 'properties' in it && it.properties)
       .reduce((acc: MilList, val: any) => {
         const key = val?.Category?.select?.id
         if (!key) return { ...acc }
@@ -52,9 +52,9 @@ const List: NextPage<ListProps> = ({ myImpossibleList }: ListProps) => {
   return (
     <>
       <Header />
-      <div className="w-4/5 md:w-3/4 lg:w-2/4 mx-auto mb-40 pt-36">
+      <div className="w-4/5 mx-auto mb-40 md:w-3/4 lg:w-2/4 pt-36">
         <div className="text-center">
-          <h1 className="inline-block mb-10 md:4 text-center text-3xl md:text-6xl lg:text-7xl border-b-8 border-accent">
+          <h1 className="inline-block mb-10 text-3xl text-center border-b-8 md:4 md:text-6xl lg:text-7xl border-accent">
             my impossible list
           </h1>
         </div>
@@ -63,7 +63,7 @@ const List: NextPage<ListProps> = ({ myImpossibleList }: ListProps) => {
         <ul>
           {Object.entries(myImpossibleList).map(([key, value]: [string, MilModel]) => (
             <li key={key}>
-              <h2 className="inline-block ml-3 mb-4 mt-14 text-xl md:text-3xl lg:text-4xl border-b-8 border-accent lowercase">
+              <h2 className="inline-block mb-4 ml-3 text-xl lowercase border-b-8 mt-14 md:text-3xl lg:text-4xl border-accent">
                 {value.category.name}
               </h2>
               <ul className="list-disc">
@@ -74,7 +74,7 @@ const List: NextPage<ListProps> = ({ myImpossibleList }: ListProps) => {
             </li>
           ))}
           {Object.values(myImpossibleList).length === 0 && (
-            <li className="text-center mt-8">Unable to fetch list 😢.</li>
+            <li className="mt-8 text-center">Unable to fetch list 😢.</li>
           )}
         </ul>
 
