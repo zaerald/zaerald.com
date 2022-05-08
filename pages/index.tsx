@@ -10,7 +10,7 @@ import Twitter from '@/public/images/twitter.svg'
 import Linkedin from '@/public/images/linkedin.svg'
 
 const Home: NextPage = () => {
-  const socialLogoClasses = 'w-6 h-6 lg:w-8 md:h-8 fill-current text-white opacity-70 hover:opacity-100'
+  const socialLogoClasses = 'w-6 h-6 lg:w-8 md:h-8 fill-current fill-white opacity-70 hover:opacity-100'
   const socials = [
     {
       name: 'GitHub',
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Header />
-      <div className="flex justify-center items-center w-full h-screen">
+      <div className="flex items-center justify-center w-full h-screen">
         <main className="w-4/5 mx-auto text-center md:w-3/5 lg:w-2/5">
           <div className="w-3/5 mx-auto mb-2 md:w-2/6 lg:w-2/6">
             <Image
@@ -48,7 +48,7 @@ const Home: NextPage = () => {
             Yo! I&apos;m{' '}
             <Link href="https://en.wikipedia.org/wiki/Daemon_(computing)">
               <a
-                className="inline-block text-white leading-5 border-b-8 border-accent hover:border-accent-hover"
+                className="inline-block text-white border-b-8 leading-5 border-accent hover:border-accent-hover"
                 target="_blank"
                 rel="noopener noreferrer"
               >
