@@ -12,6 +12,11 @@
   --color-accent: #007acc;
   --color-accent-hover: #028eee;
   --color-accent-disabled: #4984af;
+
+  --heatmap-level-0: #706f6f;
+  --heatmap-level-1: #2e8bc0;
+  --heatmap-level-2: #145da0;
+  --heatmap-level-3: #0c2d48;
 }
 
 html,

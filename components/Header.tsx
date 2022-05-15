@@ -40,6 +40,15 @@ export default function Header() {
               list
             </a>
           </Link>
+          <Link href="/stats">
+            <a
+              className={`ml-5 bg-secondary ${baseLinkClasses.join(' ')} ${
+                router.pathname === '/stats' ? activeLinkClasses : inactiveLinkClasses
+              }`}
+            >
+              stats
+            </a>
+          </Link>
           <Link href="https://blog.zaerald.com">
             <a
               className={`ml-5 ${baseLinkClasses.join(' ')} ${inactiveLinkClasses}`}

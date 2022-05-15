@@ -1,0 +1,15 @@
+.heatmapLevelZero {
+  fill: var(--heatmap-level-0);
+}
+
+.heatmapLevelOne {
+  fill: var(--heatmap-level-1);
+}
+
+.heatmapLevelTwo {
+  fill: var(--heatmap-level-2);
+}
+
+.heatmapLevelThree {
+  fill: var(--heatmap-level-3);
+}
