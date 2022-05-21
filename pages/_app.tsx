@@ -1,11 +1,16 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Router } from 'next/router'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import TopBarProgress from 'react-topbar-progress-indicator'
+import TagManager from 'react-gtm-module'
 
 function App({ Component, pageProps }: AppProps) {
   const [progress, setProgress] = useState(false)
+
+  useEffect(() => {
+    TagManager.initialize({ gtmId: process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER ?? '' })
+  }, [])
 
   TopBarProgress.config({
     barColors: {
