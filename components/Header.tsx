@@ -27,7 +27,13 @@ export default function Header() {
     <>
       <Head>
         <title>Zaerald</title>
-        <meta name="description" content="Zaerald" />
+        <meta property="og:title" content="Zaerald" />
+        <meta property="og:description" content="A daemon process that knows nothing." />
+        <meta
+          property="og:image"
+          content="https://raw.githubusercontent.com/zaerald/zaerald.com/main/assets/hero.png"
+        />
+        <meta name="description" content="A daemon process that knows nothing." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <nav className="fixed z-50 w-full px-4 py-3 bg-primary-400 md:px-8 md:py-4">
