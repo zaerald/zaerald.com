@@ -12,7 +12,7 @@ interface ListProps {
   myImpossibleList: MilList
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   let myImpossibleList = {}
 
   try {
@@ -45,7 +45,7 @@ export async function getServerSideProps() {
     console.error(`Something went wrong: ${error}`)
   }
 
-  return { props: { myImpossibleList } }
+  return { props: { myImpossibleList }, revalidate: 3600 }
 }
 
 const List: NextPage<ListProps> = ({ myImpossibleList }: ListProps) => {
