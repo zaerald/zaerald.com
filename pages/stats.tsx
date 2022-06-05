@@ -88,7 +88,7 @@ const Stats: NextPage<StatsProps> = ({ datapoints }: StatsProps) => {
   return (
     <>
       <Header />
-      <div className="pt-32 md:pt-36">
+      <div className="pt-32 pb-10 md:py-28">
         <div className="w-3/5 mx-auto">
           <h1 className="inline-block mb-10 text-3xl text-center border-b-8 md:4 md:text-6xl lg:text-7xl border-accent">
             small wins
