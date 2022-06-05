@@ -4,14 +4,12 @@ import { DateProperty, SmallWinDatapoint } from '@/lib/types'
 import { formatDate } from '@/lib/utils'
 import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints'
 import { NextPage } from 'next'
-import { useEffect, useState } from 'react'
 import CalendarHeatmap from 'react-calendar-heatmap'
 import 'react-calendar-heatmap/dist/styles.css'
 import styles from './stats.module.css'
 
 interface StatsProps {
-  initialSmallWins: string[]
-  initialCursor: string
+  datapoints: string[]
 }
 
 const hasDateRecordProperty = (value: unknown): value is DateProperty => {
@@ -45,17 +43,23 @@ const convertToDatapoint = (smallWins: string[]): SmallWinDatapoint[] => {
   return Object.entries(smallWinsMap).map(([k, v]) => ({ date: k, count: v }))
 }
 
-export async function getServerSideProps() {
-  let fetchedSmallWins: QueryDatabaseResponse = await fetchSmallWins()
+export async function getStaticProps() {
+  let initialSmallWins: QueryDatabaseResponse = await fetchSmallWins()
 
-  let initialSmallWins = parseSmallWins(fetchedSmallWins)
+  let datapoints = parseSmallWins(initialSmallWins)
+  let cursor = initialSmallWins.next_cursor
 
-  return { props: { initialSmallWins, initialCursor: fetchedSmallWins.next_cursor } }
+  while (cursor) {
+    const smallWins = await fetchSmallWins(cursor)
+
+    cursor = smallWins.next_cursor
+    datapoints = [...datapoints, ...parseSmallWins(smallWins)]
+  }
+
+  return { props: { datapoints }, revalidate: 3600 }
 }
 
-const Stats: NextPage<StatsProps> = ({ initialSmallWins, initialCursor }: StatsProps) => {
-  const [datapoints, setDatapoints] = useState<string[]>(initialSmallWins)
-
+const Stats: NextPage<StatsProps> = ({ datapoints }: StatsProps) => {
   const getStartDate = (): string => {
     const startDate = new Date()
     startDate.setDate(startDate.getDate() - 100)
@@ -78,23 +82,6 @@ const Stats: NextPage<StatsProps> = ({ initialSmallWins, initialCursor }: StatsP
     else if (5 <= value.count) return styles.heatmapLevelThree
     else return styles.heatmapValue
   }
-
-  useEffect(() => {
-    const fetchSmallWins = async () => {
-      let cursor = initialCursor
-
-      while (cursor) {
-        const response = await fetch(`/api/small-wins?cursor=${cursor}`)
-        const { data } = await response.json()
-
-        cursor = data.next_cursor
-
-        setDatapoints((datapoints) => [...datapoints, ...parseSmallWins(data)])
-      }
-    }
-
-    fetchSmallWins()
-  }, [initialSmallWins, initialCursor])
 
   const transformedDatapoints = convertToDatapoint(datapoints)
 
