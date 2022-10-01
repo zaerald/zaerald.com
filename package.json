@@ -18,7 +18,7 @@
     "react-topbar-progress-indicator": "^4.1.1"
   },
   "devDependencies": {
-    "@svgr/webpack": "^6.2.1",
+    "@svgr/webpack": "^6.4.0",
     "@types/react": "18.0.11",
     "@types/react-calendar-heatmap": "^1.6.3",
     "@types/react-gtm-module": "^2.0.1",
