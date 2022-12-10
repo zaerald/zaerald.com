@@ -46,24 +46,21 @@ const Home: NextPage = () => {
           </div>
           <p className="text-3xl sm:text-3xl md:mb-2">
             Yo! I&apos;m{' '}
-            <Link href="https://en.wikipedia.org/wiki/Daemon_(computing)">
-              <a
-                className="inline-block text-white border-b-8 leading-5 border-accent hover:border-accent-hover"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                zaerald
-              </a>
+            <Link
+              href="https://en.wikipedia.org/wiki/Daemon_(computing)"
+              className="inline-block text-white border-b-8 leading-5 border-accent hover:border-accent-hover"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              zaerald
             </Link>
           </p>
           <p className="text-secondary-200">I&apos;m a daemon process</p>
 
           <div className="flex justify-center mt-3 md:mt-4">
             {socials.map(({ component, link, name }) => (
-              <Link key={name} href={link}>
-                <a target="_blank" rel="noopener noreferrer" className="mx-3 md:mx-4">
-                  {component}
-                </a>
+              <Link key={name} href={link} target="_blank" rel="noopener noreferrer" className="mx-3 md:mx-4">
+                {component}
               </Link>
             ))}
           </div>

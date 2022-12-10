@@ -38,8 +38,8 @@ export default function Header() {
       </Head>
       <nav className="fixed z-50 w-full px-4 py-3 bg-primary-400 md:px-8 md:py-4">
         <div className="flex flex-wrap items-center">
-          <Link href="/">
-            <a className="text-3xl text-accent hover:text-accent-hover">zaerald</a>
+          <Link href="/" className="text-3xl text-accent hover:text-accent-hover">
+            zaerald
           </Link>
           <button
             onClick={() => setOpen((o) => !o)}
@@ -75,39 +75,39 @@ export default function Header() {
               ></path>
             </svg>
           </button>
-          <div className={`${hiddenClass} w-full mt-2 border-b-2 border-dashed border-accent md:block md:w-auto md:mt-0 md:ml-auto md:border-none`} id="menu">
+          <div
+            className={`${hiddenClass} w-full mt-2 border-b-2 border-dashed border-accent md:block md:w-auto md:mt-0 md:ml-auto md:border-none`}
+            id="menu"
+          >
             <ul className="md:flex md:w-full">
               <li className="my-2 md:mx-2">
-                <Link href="/list">
-                  <a
-                    className={`bg-secondary ${baseLinkClasses} ${
-                      router.pathname === '/list' ? activeLinkClasses : inactiveLinkClasses
-                    }`}
-                  >
-                    list
-                  </a>
+                <Link
+                  href="/list"
+                  className={`bg-secondary ${baseLinkClasses} ${
+                    router.pathname === '/list' ? activeLinkClasses : inactiveLinkClasses
+                  }`}
+                >
+                  list
                 </Link>
               </li>
               <li className="my-2 md:mx-2">
-                <Link href="/stats">
-                  <a
-                    className={`bg-secondary ${baseLinkClasses} ${
-                      router.pathname === '/stats' ? activeLinkClasses : inactiveLinkClasses
-                    }`}
-                  >
-                    stats
-                  </a>
+                <Link
+                  href="/stats"
+                  className={`bg-secondary ${baseLinkClasses} ${
+                    router.pathname === '/stats' ? activeLinkClasses : inactiveLinkClasses
+                  }`}
+                >
+                  stats
                 </Link>
               </li>
               <li className="my-2 md:mx-2">
-                <Link href="https://blog.zaerald.com">
-                  <a
-                    className={`${baseLinkClasses} ${inactiveLinkClasses}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    blog
-                  </a>
+                <Link
+                  href="https://blog.zaerald.com"
+                  className={`${baseLinkClasses} ${inactiveLinkClasses}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  blog
                 </Link>
               </li>
             </ul>
